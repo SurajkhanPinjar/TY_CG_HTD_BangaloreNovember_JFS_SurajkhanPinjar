@@ -1,0 +1,190 @@
+SQL> SPOOL OFF
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> select ename , loc
+  2  from emp
+  3  inner join dept
+  4  on emp.deptno=dept.deptno;
+
+ENAME      LOC
+---------- -------------
+SMITH      DALLAS
+ALLEN      CHICAGO
+WARD       CHICAGO
+JONES      DALLAS
+MARTIN     CHICAGO
+BLAKE      CHICAGO
+CLARK      NEW YORK
+SCOTT      DALLAS
+KING       NEW YORK
+TURNER     CHICAGO
+ADAMS      DALLAS
+JAMES      CHICAGO
+FORD       DALLAS
+MILLER     NEW YORK
+
+14 rows selected.
+
+SQL> spool off
+SQL> spool "D:\Capgemini\SQL\Assign\innnerjoin.txt"
+SQL> select ename , loc
+  2  from emp
+  3  inner join dept
+  4  on emp.deptno=dept.deptno;
+
+ENAME      LOC
+---------- -------------
+SMITH      DALLAS
+ALLEN      CHICAGO
+WARD       CHICAGO
+JONES      DALLAS
+MARTIN     CHICAGO
+BLAKE      CHICAGO
+CLARK      NEW YORK
+SCOTT      DALLAS
+KING       NEW YORK
+TURNER     CHICAGO
+ADAMS      DALLAS
+JAMES      CHICAGO
+FORD       DALLAS
+MILLER     NEW YORK
+
+14 rows selected.
+
+SQL> 
+SQL> select dname ,sal
+  2  from emp
+  3  inner join dept 
+  4  on emp.deptno=dept.deptno
+  5  where job='ACCOUNTING';
+
+no rows selected
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> SELECT * FROM DEPT;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> SELECT ENAME , DNAME, SAL 
+  2  FROM EMP
+  3  INNER JOIN DEPT
+  4  ON EMP.DEPTNO=DEPT.DEPTNO
+  5  WHERE DNAME='ACCOUNTING';
+
+ENAME      DNAME                 SAL
+---------- -------------- ----------
+CLARK      ACCOUNTING           2450
+KING       ACCOUNTING           5000
+MILLER     ACCOUNTING           1300
+
+SQL> select dname , sal * 12 "Annual sal"
+  2  from emp
+  3  inner join dept
+  4  on emp.detno=dept.deptno
+  5  where sal>2340;
+on emp.detno=dept.deptno
+   *
+ERROR at line 4:
+ORA-00904: "EMP"."DETNO": invalid identifier
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select dname , sal * 12 "Annual sal"
+  2  from emp
+  3  inner join dept
+  4  on emp.deptno=dept.deptno
+  5* where sal>2340
+SQL> /
+
+DNAME          Annual sal
+-------------- ----------
+RESEARCH            35700
+SALES               34200
+ACCOUNTING          29400
+RESEARCH            36000
+ACCOUNTING          60000
+RESEARCH            36000
+
+6 rows selected.
+
+SQL> select ename , dname 
+  2  from emp
+  3  inner join dept
+  4  on emp.deptno=dept.deptno
+  5  where ename like '%A%';
+
+ENAME      DNAME
+---------- --------------
+ALLEN      SALES
+WARD       SALES
+MARTIN     SALES
+BLAKE      SALES
+CLARK      ACCOUNTING
+ADAMS      RESEARCH
+JAMES      SALES
+
+7 rows selected.
+
+SQL> select ename , dname
+  2  from emp 
+  3  inner join dept
+  4  on emp.deptno=dept.deptno
+  5  where dname='SALESMAN';
+
+no rows selected
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  select ename , dname
+  2  from emp
+  3  inner join dept
+  4  on emp.deptno=dept.deptno
+  5* where JOB='SALESMAN'
+SQL> /
+
+ENAME      DNAME
+---------- --------------
+ALLEN      SALES
+WARD       SALES
+MARTIN     SALES
+TURNER     SALES
+
+SQL> SPOOL OFF
+SQL> 
+SQL> /

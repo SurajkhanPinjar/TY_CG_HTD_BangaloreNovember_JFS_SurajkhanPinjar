@@ -1,0 +1,807 @@
+SQL> 
+SQL> select * from emp
+  2  cross join dept;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO    
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ----------    
+DNAME          LOC                                                                                  
+-------------- -------------                                                                        
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         10    
+ACCOUNTING     NEW YORK                                                                             
+                                                                                                    
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         20    
+RESEARCH       DALLAS                                                                               
+                                                                                                    
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         30    
+SALES          CHICAGO                                                                              
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO    
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ----------    
+DNAME          LOC                                                                                  
+-------------- -------------                                                                        
+                                                                                                    
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         30    
+SALES          CHICAGO                                                                              
+                                                                                                    
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         40    
+OPERATIONS     BOSTON                                                                               
+                                                                                                    
+
+56 rows selected.
+
+SQL> set lines 150 pages150;
+SQL> 
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select * from emp
+  2* cross join dept
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                         
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         10 ACCOUNTING     NEW YORK                              
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         10 ACCOUNTING     NEW YORK                              
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         10 ACCOUNTING     NEW YORK                              
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         10 ACCOUNTING     NEW YORK                              
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         10 ACCOUNTING     NEW YORK                              
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         10 ACCOUNTING     NEW YORK                              
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         10 ACCOUNTING     NEW YORK                              
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         10 ACCOUNTING     NEW YORK                              
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         10 ACCOUNTING     NEW YORK                              
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         10 ACCOUNTING     NEW YORK                              
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         10 ACCOUNTING     NEW YORK                              
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         10 ACCOUNTING     NEW YORK                              
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         10 ACCOUNTING     NEW YORK                              
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         10 ACCOUNTING     NEW YORK                              
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         20 RESEARCH       DALLAS                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         20 RESEARCH       DALLAS                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         20 RESEARCH       DALLAS                                
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         20 RESEARCH       DALLAS                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         20 RESEARCH       DALLAS                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         20 RESEARCH       DALLAS                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         20 RESEARCH       DALLAS                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         20 RESEARCH       DALLAS                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         20 RESEARCH       DALLAS                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         20 RESEARCH       DALLAS                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         20 RESEARCH       DALLAS                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         20 RESEARCH       DALLAS                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         20 RESEARCH       DALLAS                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         20 RESEARCH       DALLAS                                
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         30 SALES          CHICAGO                               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         30 SALES          CHICAGO                               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         30 SALES          CHICAGO                               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         30 SALES          CHICAGO                               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         30 SALES          CHICAGO                               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         30 SALES          CHICAGO                               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         30 SALES          CHICAGO                               
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         30 SALES          CHICAGO                               
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         30 SALES          CHICAGO                               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         30 SALES          CHICAGO                               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         30 SALES          CHICAGO                               
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         30 SALES          CHICAGO                               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         30 SALES          CHICAGO                               
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         30 SALES          CHICAGO                               
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         40 OPERATIONS     BOSTON                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         40 OPERATIONS     BOSTON                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         40 OPERATIONS     BOSTON                                
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         40 OPERATIONS     BOSTON                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         40 OPERATIONS     BOSTON                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         40 OPERATIONS     BOSTON                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         40 OPERATIONS     BOSTON                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         40 OPERATIONS     BOSTON                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         40 OPERATIONS     BOSTON                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         40 OPERATIONS     BOSTON                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         40 OPERATIONS     BOSTON                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         40 OPERATIONS     BOSTON                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         40 OPERATIONS     BOSTON                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         40 OPERATIONS     BOSTON                                
+
+56 rows selected.
+
+SQL> spool off
+SQL> 
+SQL> select * from emp,dept;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                         
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         10 ACCOUNTING     NEW YORK                              
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         10 ACCOUNTING     NEW YORK                              
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         10 ACCOUNTING     NEW YORK                              
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         10 ACCOUNTING     NEW YORK                              
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         10 ACCOUNTING     NEW YORK                              
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         10 ACCOUNTING     NEW YORK                              
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         10 ACCOUNTING     NEW YORK                              
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         10 ACCOUNTING     NEW YORK                              
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         10 ACCOUNTING     NEW YORK                              
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         10 ACCOUNTING     NEW YORK                              
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         10 ACCOUNTING     NEW YORK                              
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         10 ACCOUNTING     NEW YORK                              
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         10 ACCOUNTING     NEW YORK                              
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         10 ACCOUNTING     NEW YORK                              
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         20 RESEARCH       DALLAS                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         20 RESEARCH       DALLAS                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         20 RESEARCH       DALLAS                                
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         20 RESEARCH       DALLAS                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         20 RESEARCH       DALLAS                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         20 RESEARCH       DALLAS                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         20 RESEARCH       DALLAS                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         20 RESEARCH       DALLAS                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         20 RESEARCH       DALLAS                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         20 RESEARCH       DALLAS                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         20 RESEARCH       DALLAS                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         20 RESEARCH       DALLAS                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         20 RESEARCH       DALLAS                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         20 RESEARCH       DALLAS                                
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         30 SALES          CHICAGO                               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         30 SALES          CHICAGO                               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         30 SALES          CHICAGO                               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         30 SALES          CHICAGO                               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         30 SALES          CHICAGO                               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         30 SALES          CHICAGO                               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         30 SALES          CHICAGO                               
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         30 SALES          CHICAGO                               
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         30 SALES          CHICAGO                               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         30 SALES          CHICAGO                               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         30 SALES          CHICAGO                               
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         30 SALES          CHICAGO                               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         30 SALES          CHICAGO                               
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         30 SALES          CHICAGO                               
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         40 OPERATIONS     BOSTON                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         40 OPERATIONS     BOSTON                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         40 OPERATIONS     BOSTON                                
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         40 OPERATIONS     BOSTON                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         40 OPERATIONS     BOSTON                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         40 OPERATIONS     BOSTON                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         40 OPERATIONS     BOSTON                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         40 OPERATIONS     BOSTON                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         40 OPERATIONS     BOSTON                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         40 OPERATIONS     BOSTON                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         40 OPERATIONS     BOSTON                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         40 OPERATIONS     BOSTON                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         40 OPERATIONS     BOSTON                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         40 OPERATIONS     BOSTON                                
+
+56 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select * from emp,dept
+  2* where emp.deptno=dept.deptno
+SQL> ;
+  1  select * from emp,dept
+  2* where emp.deptno=dept.deptno
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                         
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         20 RESEARCH       DALLAS                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         30 SALES          CHICAGO                               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         30 SALES          CHICAGO                               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         20 RESEARCH       DALLAS                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         30 SALES          CHICAGO                               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         30 SALES          CHICAGO                               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         10 ACCOUNTING     NEW YORK                              
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         20 RESEARCH       DALLAS                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         10 ACCOUNTING     NEW YORK                              
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         30 SALES          CHICAGO                               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         20 RESEARCH       DALLAS                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         30 SALES          CHICAGO                               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         20 RESEARCH       DALLAS                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         10 ACCOUNTING     NEW YORK                              
+
+14 rows selected.
+
+SQL> spool off;
+SQL> 
+SQL> select * from emp
+  2  inner join dept
+  3  on emp.deptno=dept.deptno;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                         
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         20 RESEARCH       DALLAS                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         30 SALES          CHICAGO                               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         30 SALES          CHICAGO                               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         20 RESEARCH       DALLAS                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         30 SALES          CHICAGO                               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         30 SALES          CHICAGO                               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         10 ACCOUNTING     NEW YORK                              
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         20 RESEARCH       DALLAS                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         10 ACCOUNTING     NEW YORK                              
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         30 SALES          CHICAGO                               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         20 RESEARCH       DALLAS                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         30 SALES          CHICAGO                               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         20 RESEARCH       DALLAS                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         10 ACCOUNTING     NEW YORK                              
+
+14 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select * from emp
+  2  Right join dept
+  3* on emp.deptno=dept.deptno
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                         
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         10 ACCOUNTING     NEW YORK                              
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         10 ACCOUNTING     NEW YORK                              
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         10 ACCOUNTING     NEW YORK                              
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         20 RESEARCH       DALLAS                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         20 RESEARCH       DALLAS                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         20 RESEARCH       DALLAS                                
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         20 RESEARCH       DALLAS                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         20 RESEARCH       DALLAS                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         30 SALES          CHICAGO                               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         30 SALES          CHICAGO                               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         30 SALES          CHICAGO                               
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         30 SALES          CHICAGO                               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         30 SALES          CHICAGO                               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         30 SALES          CHICAGO                               
+                                                                                              40 OPERATIONS     BOSTON                                
+
+15 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select * from emp
+  2  left join dept
+  3* on emp.deptno=dept.deptno
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                         
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         20 RESEARCH       DALLAS                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         30 SALES          CHICAGO                               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         30 SALES          CHICAGO                               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         20 RESEARCH       DALLAS                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         30 SALES          CHICAGO                               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         30 SALES          CHICAGO                               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         10 ACCOUNTING     NEW YORK                              
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         20 RESEARCH       DALLAS                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         10 ACCOUNTING     NEW YORK                              
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         30 SALES          CHICAGO                               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         20 RESEARCH       DALLAS                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         30 SALES          CHICAGO                               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         20 RESEARCH       DALLAS                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         10 ACCOUNTING     NEW YORK                              
+
+14 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select * from emp
+  2  full join dept
+  3* on emp.deptno=dept.deptno
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                         
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20         20 RESEARCH       DALLAS                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         30 SALES          CHICAGO                               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         30 SALES          CHICAGO                               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         20 RESEARCH       DALLAS                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         30 SALES          CHICAGO                               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         30 SALES          CHICAGO                               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10         10 ACCOUNTING     NEW YORK                              
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20         20 RESEARCH       DALLAS                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10         10 ACCOUNTING     NEW YORK                              
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         30 SALES          CHICAGO                               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20         20 RESEARCH       DALLAS                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30         30 SALES          CHICAGO                               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20         20 RESEARCH       DALLAS                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10         10 ACCOUNTING     NEW YORK                              
+                                                                                              40 OPERATIONS     BOSTON                                
+
+15 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select * from dept
+  2  full join emp
+  3* on emp.deptno=dept.deptno
+SQL> /
+
+    DEPTNO DNAME          LOC                EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                         
+---------- -------------- ------------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------                         
+        10 ACCOUNTING     NEW YORK            7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                         
+        10 ACCOUNTING     NEW YORK            7839 KING       PRESIDENT            17-NOV-81       5000                    10                         
+        10 ACCOUNTING     NEW YORK            7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                         
+        20 RESEARCH       DALLAS              7566 JONES      MANAGER         7839 02-APR-81       2975                    20                         
+        20 RESEARCH       DALLAS              7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                         
+        20 RESEARCH       DALLAS              7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                         
+        20 RESEARCH       DALLAS              7369 SMITH      CLERK           7902 17-DEC-80        800                    20                         
+        20 RESEARCH       DALLAS              7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                         
+        30 SALES          CHICAGO             7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                         
+        30 SALES          CHICAGO             7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                         
+        30 SALES          CHICAGO             7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                         
+        30 SALES          CHICAGO             7900 JAMES      CLERK           7698 03-DEC-81        950                    30                         
+        30 SALES          CHICAGO             7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                         
+        30 SALES          CHICAGO             7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                         
+        40 OPERATIONS     BOSTON                                                                                                                      
+
+15 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select * from dept
+  2  full join emp
+  3  on emp.deptno=dept.deptno
+  4* where empno is nulll
+  5  /
+where empno is nulll
+               *
+ERROR at line 4:
+ORA-00908: missing NULL keyword 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select * from dept
+  2  full join emp
+  3  on emp.deptno=dept.deptno
+  4* where empno is null
+SQL> /
+
+    DEPTNO DNAME          LOC                EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                         
+---------- -------------- ------------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------                         
+        40 OPERATIONS     BOSTON                                                                                                                      
+
+SQL> spool off
+SQL> 
+SQL> 
+SQL> spool off
+SQL> 
+SQL> select sal from emp
+  2  /
+
+       SAL                                                                                                                                            
+----------                                                                                                                                            
+       800                                                                                                                                            
+      1600                                                                                                                                            
+      1250                                                                                                                                            
+      2975                                                                                                                                            
+      1250                                                                                                                                            
+      2850                                                                                                                                            
+      2450                                                                                                                                            
+      3000                                                                                                                                            
+      5000                                                                                                                                            
+      1500                                                                                                                                            
+      1100                                                                                                                                            
+       950                                                                                                                                            
+      3000                                                                                                                                            
+      1300                                                                                                                                            
+
+14 rows selected.
+
+SQL> select sal from emp
+  2  where mgr=(select mgr from emp
+  3             where ename="SCOTT");
+           where ename="SCOTT")
+                       *
+ERROR at line 3:
+ORA-00904: "SCOTT": invalid identifier 
+
+
+SQL> SELECT MGR FROM EMP
+  2  WHERE ENAME="SCOTT";
+WHERE ENAME="SCOTT"
+            *
+ERROR at line 2:
+ORA-00904: "SCOTT": invalid identifier 
+
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                 
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                 
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                 
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                 
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                 
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                 
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                 
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                 
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                 
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                 
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                 
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                 
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                 
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                 
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                 
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                 
+
+14 rows selected.
+
+SQL> SELECT SAL FROM EMP
+  2  WHERE EMPNO=(SELECT MGR FROM EMP
+  3               where ename ="SCOTT");
+             where ename ="SCOTT")
+                          *
+ERROR at line 3:
+ORA-00904: "SCOTT": invalid identifier 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  SELECT SAL FROM EMP
+  2  WHERE EMPNO=(SELECT MGR FROM EMP
+  3*              where ename ='SCOTT')
+SQL> /
+
+       SAL                                                                                                                                            
+----------                                                                                                                                            
+      2975                                                                                                                                            
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  SELECT SAL FROM EMP
+  2  WHERE ename= 'SCOTT' AND EMPNO=(SELECT MGR FROM EMP
+  3*              where ename ='SCOTT')
+SQL> /
+
+no rows selected
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT SAL FROM EMP
+  2  WHERE ename= 'SCOTT' OR EMPNO=(SELECT MGR FROM EMP
+  3*              where ename ='SCOTT')
+SQL> /
+
+       SAL                                                                                                                                            
+----------                                                                                                                                            
+      2975                                                                                                                                            
+      3000                                                                                                                                            
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT ENAME, SAL FROM EMP
+  2  WHERE ename= 'SCOTT' OR EMPNO=(SELECT MGR FROM EMP
+  3*              where ename ='SCOTT')
+SQL> /
+
+ENAME             SAL                                                                                                                                 
+---------- ----------                                                                                                                                 
+JONES            2975                                                                                                                                 
+SCOTT            3000                                                                                                                                 
+
+SQL> CL SCR
+SQL> SELECT * FROM EMP E1
+  2  JOIN EMP E2
+  3  ON E1.MGR=E2.EMPNO
+  4  WHERE E1.ENAME='SCOTT';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL 
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- ---------- --------- ---------- --------- ---------- 
+      COMM     DEPTNO                                                                                                                                 
+---------- ----------                                                                                                                                 
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20       7566 JONES      MANAGER         7839 02-APR-81       2975 
+                   20                                                                                                                                 
+                                                                                                                                                      
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT E1.SAL, E2.SAL 
+  2  FROM EMP E1
+  3  JOIN EMP E2
+  4  ON E1.MGR=E2.EMPNO
+  5* WHERE E1.ENAME='SCOTT'
+SQL> /
+
+       SAL        SAL                                                                                                                                 
+---------- ----------                                                                                                                                 
+      3000       2975                                                                                                                                 
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT E1.ENAME,E1.SAL, E2.ENAME,E2.SAL 
+  2  FROM EMP E1
+  3  JOIN EMP E2
+  4  ON E1.MGR=E2.EMPNO
+  5* WHERE E1.ENAME='SCOTT'
+SQL> /
+
+ENAME             SAL ENAME             SAL                                                                                                           
+---------- ---------- ---------- ----------                                                                                                           
+SCOTT            3000 JONES            2975                                                                                                           
+
+SQL> SELECT E1.ENAME, E1.SAl, e2.ename , E2.SAL
+  2  FROM EMP E1
+  3  JOIN EMP E2
+  4  ON E1.MGR=E2.EMPNO
+  5  WHERE ENAME='SCOTT';
+WHERE ENAME='SCOTT'
+      *
+ERROR at line 5:
+ORA-00918: column ambiguously defined 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT E1.ENAME, E1.SAl, e2.ename , E2.SAL
+  2  FROM EMP E1
+  3  JOIN EMP E2
+  4  ON E1.MGR=E2.EMPNO
+  5* WHERE E1.ENAME='SCOTT'
+SQL> /
+
+ENAME             SAL ENAME             SAL                                                                                                           
+---------- ---------- ---------- ----------                                                                                                           
+SCOTT            3000 JONES            2975                                                                                                           
+
+SQL> SELECT * FROM EMP
+  2  NATURAL JOIN DEPT;
+
+    DEPTNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM DNAME          LOC                                              
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- -------------- -------------                                    
+        20       7369 SMITH      CLERK           7902 17-DEC-80        800            RESEARCH       DALLAS                                           
+        30       7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300 SALES          CHICAGO                                          
+        30       7521 WARD       SALESMAN        7698 22-FEB-81       1250        500 SALES          CHICAGO                                          
+        20       7566 JONES      MANAGER         7839 02-APR-81       2975            RESEARCH       DALLAS                                           
+        30       7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400 SALES          CHICAGO                                          
+        30       7698 BLAKE      MANAGER         7839 01-MAY-81       2850            SALES          CHICAGO                                          
+        10       7782 CLARK      MANAGER         7839 09-JUN-81       2450            ACCOUNTING     NEW YORK                                         
+        20       7788 SCOTT      ANALYST         7566 19-APR-87       3000            RESEARCH       DALLAS                                           
+        10       7839 KING       PRESIDENT            17-NOV-81       5000            ACCOUNTING     NEW YORK                                         
+        30       7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0 SALES          CHICAGO                                          
+        20       7876 ADAMS      CLERK           7788 23-MAY-87       1100            RESEARCH       DALLAS                                           
+        30       7900 JAMES      CLERK           7698 03-DEC-81        950            SALES          CHICAGO                                          
+        20       7902 FORD       ANALYST         7566 03-DEC-81       3000            RESEARCH       DALLAS                                           
+        10       7934 MILLER     CLERK           7782 23-JAN-82       1300            ACCOUNTING     NEW YORK                                         
+
+14 rows selected.
+
+SQL> 
+SQL> 
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT * FROM EMP
+  2* NATURAL JOIN SALGRADE
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO      GRADE      LOSAL      HISAL                                
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- ---------- ----------                                
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20          1        700       1200                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30          1        700       1200                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30          1        700       1200                                
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20          1        700       1200                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30          1        700       1200                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30          1        700       1200                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10          1        700       1200                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20          1        700       1200                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10          1        700       1200                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30          1        700       1200                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20          1        700       1200                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30          1        700       1200                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20          1        700       1200                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10          1        700       1200                                
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20          2       1201       1400                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30          2       1201       1400                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30          2       1201       1400                                
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20          2       1201       1400                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30          2       1201       1400                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30          2       1201       1400                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10          2       1201       1400                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20          2       1201       1400                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10          2       1201       1400                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30          2       1201       1400                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20          2       1201       1400                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30          2       1201       1400                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20          2       1201       1400                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10          2       1201       1400                                
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20          3       1401       2000                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30          3       1401       2000                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30          3       1401       2000                                
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20          3       1401       2000                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30          3       1401       2000                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30          3       1401       2000                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10          3       1401       2000                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20          3       1401       2000                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10          3       1401       2000                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30          3       1401       2000                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20          3       1401       2000                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30          3       1401       2000                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20          3       1401       2000                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10          3       1401       2000                                
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20          4       2001       3000                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30          4       2001       3000                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30          4       2001       3000                                
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20          4       2001       3000                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30          4       2001       3000                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30          4       2001       3000                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10          4       2001       3000                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20          4       2001       3000                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10          4       2001       3000                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30          4       2001       3000                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20          4       2001       3000                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30          4       2001       3000                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20          4       2001       3000                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10          4       2001       3000                                
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20          5       3001       9999                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30          5       3001       9999                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30          5       3001       9999                                
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20          5       3001       9999                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30          5       3001       9999                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30          5       3001       9999                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10          5       3001       9999                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20          5       3001       9999                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10          5       3001       9999                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30          5       3001       9999                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20          5       3001       9999                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30          5       3001       9999                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20          5       3001       9999                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10          5       3001       9999                                
+
+70 rows selected.
+
+SQL> SPOOL OFF

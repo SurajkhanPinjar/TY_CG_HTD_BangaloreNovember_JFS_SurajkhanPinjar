@@ -1,0 +1,451 @@
+SQL> 
+SQL> SELECT * FROM AVG
+  2  /
+SELECT * FROM AVG
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT * FROM AVG(SAL)
+  2* FROM EMP
+SQL> /
+SELECT * FROM AVG(SAL)
+                 *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT  AVG(SAL)
+  2* FROM EMP
+SQL> /
+
+  AVG(SAL)                                                                                          
+----------                                                                                          
+2073.21429                                                                                          
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT  MAX(SAL)
+  2* FROM EMP
+SQL> /
+
+  MAX(SAL)                                                                                          
+----------                                                                                          
+      5000                                                                                          
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT  MIN(SAL)
+  2* FROM EMP
+SQL> /
+
+  MIN(SAL)                                                                                          
+----------                                                                                          
+       800                                                                                          
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT  SUM(SAL)
+  2* FROM EMP
+SQL> /
+
+  SUM(SAL)                                                                                          
+----------                                                                                          
+     29025                                                                                          
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT  COUNT(SAL)
+  2* FROM EMP
+SQL> /
+
+COUNT(SAL)                                                                                          
+----------                                                                                          
+        14                                                                                          
+
+SQL> SPOOL OFF
+SQL> 
+SQL> 
+SQL> cl scr
+SQL> select count(COMM)
+  2  FROM EMP;
+
+COUNT(COMM)                                                                                         
+-----------                                                                                         
+          4                                                                                         
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  select count(MGR)
+  2* FROM EMP
+SQL> /
+
+COUNT(MGR)                                                                                          
+----------                                                                                          
+        13                                                                                          
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  select count(MGR)  --MRF IGNORES THE NULL VALUES--
+  2* FROM EMP
+SQL> /
+
+COUNT(MGR)--MRFIGNORESTHENULLVALUES--                                                               
+-------------------------------------                                                               
+                                   13                                                               
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  select count(MGR)  //MRF IGNORES THE NULL VALUES//
+  2* FROM EMP
+SQL> /
+select count(MGR)  //MRF IGNORES THE NULL VALUES//
+                    *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  select count(MGR)  /* MRF IGNORES THE NULL VALUES*/
+  2* FROM EMP
+SQL> /
+
+COUNT(MGR)/*MRFIGNORESTHENULLVALUES*/                                                               
+-------------------------------------                                                               
+                                   13                                                               
+
+SQL> CL SCR
+SQL> SELECT SUM(COMM), COMM
+  2  FROM EMP;
+SELECT SUM(COMM), COMM
+                  *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> SELECT AVG(COMM), MAX(COMM), MIN(COMM), SUM(COMM)
+  2  FROM EMP;
+
+ AVG(COMM)  MAX(COMM)  MIN(COMM)  SUM(COMM)                                                         
+---------- ---------- ---------- ----------                                                         
+       550       1400          0       2200                                                         
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT AVG(COMM), MAX(COMM), MIN(COMM), SUM(COMM), COUNT(COMM)
+  2* FROM EMP
+SQL> /
+
+ AVG(COMM)  MAX(COMM)  MIN(COMM)  SUM(COMM) COUNT(COMM)                                             
+---------- ---------- ---------- ---------- -----------                                             
+       550       1400          0       2200           4                                             
+
+SQL> SELECT MAX(SUM(COMM))
+  2  FROM EMP;
+SELECT MAX(SUM(COMM))
+           *
+ERROR at line 1:
+ORA-00978: nested group function without GROUP BY 
+
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> SELECT * FROM EMP
+  2  WHERE SAL=MAX(SAL);
+WHERE SAL=MAX(SAL)
+          *
+ERROR at line 2:
+ORA-00934: group function is not allowed here 
+
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> SELECT MAX(SAL,COMM)
+  2  FROM EMP;
+SELECT MAX(SAL,COMM)
+       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments 
+
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> SELECT SAL
+  2  FROM EMP
+  3  GROUP BY SAL;
+
+       SAL                                                                                          
+----------                                                                                          
+      2450                                                                                          
+      5000                                                                                          
+      1300                                                                                          
+      1250                                                                                          
+      2850                                                                                          
+      2975                                                                                          
+      1100                                                                                          
+      3000                                                                                          
+       800                                                                                          
+      1600                                                                                          
+      1500                                                                                          
+       950                                                                                          
+
+12 rows selected.
+
+SQL> 
+SQL> SELECT DEPTNO FROM DEPT
+  2  GROUP BY DEPTNO;
+
+    DEPTNO                                                                                          
+----------                                                                                          
+        10                                                                                          
+        20                                                                                          
+        30                                                                                          
+        40                                                                                          
+
+SQL> SELECT DEPTNO FROM EMP
+  2  GROUP BY DEPTNO;
+
+    DEPTNO                                                                                          
+----------                                                                                          
+        30                                                                                          
+        20                                                                                          
+        10                                                                                          
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> SELECT COUNT(DEPTNO) FROM EMP
+  2  GROUP BY DEPTNO;
+
+COUNT(DEPTNO)                                                                                       
+-------------                                                                                       
+            6                                                                                       
+            5                                                                                       
+            3                                                                                       
+
+SQL> E
+SP2-0042: unknown command "E" - rest of line ignored.
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT COUNT(DEPTNO),DEPTNO
+  2   FROM EMP
+  3* GROUP BY DEPTNO
+SQL> /
+
+COUNT(DEPTNO)     DEPTNO                                                                            
+------------- ----------                                                                            
+            6         30                                                                            
+            5         20                                                                            
+            3         10                                                                            
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> SELECCT COUNT(DEPTNO), SAL
+SP2-0734: unknown command beginning "SELECCT CO..." - rest of line ignored.
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT COUNT(DEPTNO),DEPTNO
+  2   FROM EMP
+  3* GROUP BY DEPTNO
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> SELECT MAX(SAL), DEPTNO
+  2  FROM EMP
+  3  GROUP BY DEPTNO;
+
+  MAX(SAL)     DEPTNO                                                                               
+---------- ----------                                                                               
+      2850         30                                                                               
+      3000         20                                                                               
+      5000         10                                                                               
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT AVG(MAX(SAL)), DEPTNO
+  2  FROM EMP
+  3* GROUP BY DEPTNO
+SQL> /
+SELECT AVG(MAX(SAL)), DEPTNO
+                      *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT AVG(MAX(SAL))
+  2  FROM EMP
+  3* GROUP BY DEPTNO
+SQL> /
+
+AVG(MAX(SAL))                                                                                       
+-------------                                                                                       
+   3616.66667                                                                                       
+
+SQL> SPOOL OFF

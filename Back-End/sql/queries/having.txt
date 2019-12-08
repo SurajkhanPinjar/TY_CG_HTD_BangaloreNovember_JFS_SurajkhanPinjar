@@ -1,0 +1,387 @@
+SQL> 
+SQL> 
+SQL> select sum(sal), job
+  2  from emp
+  3  group by job;
+
+  SUM(SAL) JOB                                                                                      
+---------- ---------                                                                                
+      4150 CLERK                                                                                    
+      5600 SALESMAN                                                                                 
+      5000 PRESIDENT                                                                                
+      8275 MANAGER                                                                                  
+      6000 ANALYST                                                                                  
+
+SQL> 
+SQL> 
+SQL> 
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename , hiredate
+  2  from emp
+  3  group by hiredate
+  4* having count(*) >2
+SQL> /
+select ename , hiredate
+       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select count(*), hiredate
+  2  from emp
+  3  group by hiredate
+  4* having count(*) >2
+SQL> /
+
+no rows selected
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> select deptno, ed
+  2  /
+select deptno, ed
+                *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select ename ,,hiredate
+  2  from emp
+  3  group by hiredate
+  4  having distinct(hiredate) >2;
+select ename ,,hiredate
+              *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename ,hiredate
+  2  from emp
+  3  group by hiredate
+  4* having distinct(hiredate) >2
+SQL> /
+having distinct(hiredate) >2
+       *
+ERROR at line 4:
+ORA-00936: missing expression 
+
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20               
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20               
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10               
+
+14 rows selected.
+
+SQL> select count(*),avg(sal),deptno
+  2  from emp
+  3  group by deptno
+  4  having avg(sal)<comm;
+having avg(sal)<comm
+                *
+ERROR at line 4:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select count(*),avg(sal),deptno
+  2  from emp
+  3  group by deptno
+  4* having comm>avg(sal)
+SQL> /
+having comm>avg(sal)
+       *
+ERROR at line 4:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select count(*),avg(sal)
+  2  from emp
+  3  group by deptno
+  4* having comm>avg(sal)
+SQL> /
+having comm>avg(sal)
+       *
+ERROR at line 4:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> 
+SQL> 
+SQL> select max(sal),ename
+  2  from emp
+  3  where job='MANAGER'
+  4  group by job;
+select max(sal),ename
+                *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select max(sal),ename
+  2  from emp
+  3  where job='MANAGER'
+  4* group by deptno
+SQL> /
+select max(sal),ename
+                *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select max(sal)
+  2  from emp
+  3  where job='MANAGER'
+  4* group by deptno
+SQL> /
+
+  MAX(SAL)                                                                                          
+----------                                                                                          
+      2850                                                                                          
+      2975                                                                                          
+      2450                                                                                          
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename,max(sal)
+  2  from emp
+  3  where job='MANAGER'
+  4* group by deptno
+SQL> /
+select ename,max(sal)
+       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> select deptno,
+  2  from emp
+  3  group by deptno
+  4  having sum(sal)>9000;
+from emp
+*
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select deptno
+  2  from emp
+  3  group by deptno
+  4* having sum(sal)>9000
+SQL> /
+
+    DEPTNO                                                                                          
+----------                                                                                          
+        30                                                                                          
+        20                                                                                          
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select deptno, ename
+  2  from emp
+  3  group by deptno
+  4* having sum(sal)>9000
+SQL> /
+select deptno, ename
+               *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename,deptno
+  2  from emp
+  3  group by deptno
+  4* having sum(sal)>9000
+SQL> /
+select ename,deptno
+       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select sum(sal),deptno
+  2  from emp
+  3  group by deptno
+  4* having sum(sal)>9000 and count(*)>2
+SQL> /
+
+  SUM(SAL)     DEPTNO                                                                               
+---------- ----------                                                                               
+      9400         30                                                                               
+     10875         20                                                                               
+
+SQL> spool off
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> select ename
+  2  from emp
+  3  group count(sal)
+  4  having count(*)>1;
+group count(sal)
+      *
+ERROR at line 3:
+ORA-00924: missing BY keyword 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select sal
+  2  from emp
+  3  group count(sal)
+  4* having count(*)>1
+SQL> /
+group count(sal)
+      *
+ERROR at line 3:
+ORA-00924: missing BY keyword 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select sal
+  2  from emp
+  3  group by sal
+  4* having count(*)>1
+SQL> /
+
+       SAL                                                                                          
+----------                                                                                          
+      1250                                                                                          
+      3000                                                                                          
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename, sal
+  2  from emp
+  3  group by sal
+  4* having count(*)>1
+SQL> /
+select ename, sal
+       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select  sal
+  2  from emp
+  3  group by sal
+  4* having count(*)>1
+SQL> /
+
+       SAL                                                                                          
+----------                                                                                          
+      1250                                                                                          
+      3000                                                                                          
+
+SQL> select ename
+  2  from emp
+  3  group by ename
+  4  having count(*)>1;
+
+no rows selected
+
+SQL> select deptno
+  2  from emp
+  3  group by deptno
+  4  having sal between 2500 and 3000;
+having sal between 2500 and 3000
+       *
+ERROR at line 4:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select deptno
+  2  from emp
+  3  group by deptno
+  4* having avg(sal) between 2500 and 3000
+SQL> /
+
+    DEPTNO                                                                                          
+----------                                                                                          
+        10                                                                                          
+
+SQL> select count(*)
+  2  from emp
+  3  where job in('MANAGER','ANALYST') and sal*12 like '%0'
+  4  group by deptno;
+
+  COUNT(*)                                                                                          
+----------                                                                                          
+         1                                                                                          
+         3                                                                                          
+         1                                                                                          
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select count(*), deptno
+  2  from emp
+  3  where job in('MANAGER','ANALYST') and sal*12 like '%0'
+  4* group by deptno
+SQL> /
+
+  COUNT(*)     DEPTNO                                                                               
+---------- ----------                                                                               
+         1         30                                                                               
+         3         20                                                                               
+         1         10                                                                               
+
+SQL> spool off

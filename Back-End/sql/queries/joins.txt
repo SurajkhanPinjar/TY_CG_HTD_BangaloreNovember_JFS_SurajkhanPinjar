@@ -1,0 +1,384 @@
+SQL> 
+SQL> 
+SQL> --------2-----------------;
+SQL> -------------3-------------;
+SQL> 
+SQL> -2----------;
+SP2-0734: unknown command beginning "-2--------..." - rest of line ignored.
+SQL> ---------2---------;
+SQL> SELECT E1.ENAME,E1.EMPNO,E2.ENAME,E2.EMPNO
+  2  FROM EMP
+  3  JOIN EMP E2
+  4  ON E1.MGR=E2.EMPNO;
+ON E1.MGR=E2.EMPNO
+   *
+ERROR at line 4:
+ORA-00904: "E1"."MGR": invalid identifier 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT E1.ENAME,E1.EMPNO,E2.ENAME,E2.EMPNO
+  2  FROM EMP E1
+  3  JOIN EMP E2
+  4* ON E1.MGR=E2.EMPNO
+SQL> /
+
+ENAME           EMPNO ENAME           EMPNO                                                         
+---------- ---------- ---------- ----------                                                         
+SMITH            7369 FORD             7902                                                         
+ALLEN            7499 BLAKE            7698                                                         
+WARD             7521 BLAKE            7698                                                         
+JONES            7566 KING             7839                                                         
+MARTIN           7654 BLAKE            7698                                                         
+BLAKE            7698 KING             7839                                                         
+CLARK            7782 KING             7839                                                         
+SCOTT            7788 JONES            7566                                                         
+TURNER           7844 BLAKE            7698                                                         
+ADAMS            7876 SCOTT            7788                                                         
+JAMES            7900 BLAKE            7698                                                         
+FORD             7902 JONES            7566                                                         
+MILLER           7934 CLARK            7782                                                         
+
+13 rows selected.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT E1.ENAME,E1.EMPNO,E2.ENAME MGR,E2.EMPNO
+  2  FROM EMP E1
+  3  JOIN EMP E2
+  4* ON E1.MGR=E2.EMPNO
+SQL> /
+
+ENAME           EMPNO MGR             EMPNO                                                         
+---------- ---------- ---------- ----------                                                         
+SMITH            7369 FORD             7902                                                         
+ALLEN            7499 BLAKE            7698                                                         
+WARD             7521 BLAKE            7698                                                         
+JONES            7566 KING             7839                                                         
+MARTIN           7654 BLAKE            7698                                                         
+BLAKE            7698 KING             7839                                                         
+CLARK            7782 KING             7839                                                         
+SCOTT            7788 JONES            7566                                                         
+TURNER           7844 BLAKE            7698                                                         
+ADAMS            7876 SCOTT            7788                                                         
+JAMES            7900 BLAKE            7698                                                         
+FORD             7902 JONES            7566                                                         
+MILLER           7934 CLARK            7782                                                         
+
+13 rows selected.
+
+SQL> ----------------3---------------;
+SQL> SPOOL OFF
+SQL> 
+SQL> -------------3-------------------;
+SQL> SELECT ENAME, DNAME
+  2  FROM EMP
+  3  FULL JOIN DEPT
+  4  ON EMP.DEPTNO=DEPT.DEPTNO;
+
+ENAME      DNAME                                                                                    
+---------- --------------                                                                           
+SMITH      RESEARCH                                                                                 
+ALLEN      SALES                                                                                    
+WARD       SALES                                                                                    
+JONES      RESEARCH                                                                                 
+MARTIN     SALES                                                                                    
+BLAKE      SALES                                                                                    
+CLARK      ACCOUNTING                                                                               
+SCOTT      RESEARCH                                                                                 
+KING       ACCOUNTING                                                                               
+TURNER     SALES                                                                                    
+ADAMS      RESEARCH                                                                                 
+JAMES      SALES                                                                                    
+FORD       RESEARCH                                                                                 
+MILLER     ACCOUNTING                                                                               
+           OPERATIONS                                                                               
+
+15 rows selected.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT ENAME, DNAME, DEPTNO
+  2  FROM EMP
+  3  FULL JOIN DEPT
+  4* ON EMP.DEPTNO=DEPT.DEPTNO
+SQL> /
+SELECT ENAME, DNAME, DEPTNO
+                     *
+ERROR at line 1:
+ORA-00918: column ambiguously defined 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT ENAME, DNAME
+  2  FROM EMP
+  3  FULL JOIN DEPT
+  4* ON EMP.DEPTNO=DEPT.DEPTNO
+SQL> /
+
+ENAME      DNAME                                                                                    
+---------- --------------                                                                           
+SMITH      RESEARCH                                                                                 
+ALLEN      SALES                                                                                    
+WARD       SALES                                                                                    
+JONES      RESEARCH                                                                                 
+MARTIN     SALES                                                                                    
+BLAKE      SALES                                                                                    
+CLARK      ACCOUNTING                                                                               
+SCOTT      RESEARCH                                                                                 
+KING       ACCOUNTING                                                                               
+TURNER     SALES                                                                                    
+ADAMS      RESEARCH                                                                                 
+JAMES      SALES                                                                                    
+FORD       RESEARCH                                                                                 
+MILLER     ACCOUNTING                                                                               
+           OPERATIONS                                                                               
+
+15 rows selected.
+
+SQL> --------4-------------;
+SQL> 
+SQL> SELECT DNAME, SUM(SAL)
+  2  FROM EMP
+  3  JOIN DEPT
+  4  ON EMP.DEPT=DEPT.DEPTNO
+  5  GROUP BY DEPTNO;
+ON EMP.DEPT=DEPT.DEPTNO
+   *
+ERROR at line 4:
+ORA-00904: "EMP"."DEPT": invalid identifier 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT DNAME, SUM(SAL)
+  2  FROM EMP
+  3  JOIN DEPT
+  4  ON EMP.DEPTNO=DEPT.DEPTNO
+  5* GROUP BY DEPTNO
+SQL> /
+GROUP BY DEPTNO
+         *
+ERROR at line 5:
+ORA-00918: column ambiguously defined 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT DNAME, SUM(SAL)
+  2  FROM EMP
+  3  JOIN DEPT
+  4  ON EMP.DEPTNO=DEPT.DEPTNO
+  5* GROUP BY DNAME
+SQL> /
+
+DNAME            SUM(SAL)                                                                           
+-------------- ----------                                                                           
+ACCOUNTING           8750                                                                           
+RESEARCH            10875                                                                           
+SALES                9400                                                                           
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT DNAME, SUM(SAL)
+  2  FROM EMP
+  3  INNER JOIN DEPT
+  4  ON EMP.DEPTNO=DEPT.DEPTNO
+  5* GROUP BY DNAME
+SQL> /
+
+DNAME            SUM(SAL)                                                                           
+-------------- ----------                                                                           
+ACCOUNTING           8750                                                                           
+RESEARCH            10875                                                                           
+SALES                9400                                                                           
+
+SQL> -----------5-----------;
+SQL> SELECT ENAME , DNAME
+  2  FROM EMP
+  3  JOIN DEPT
+  4  ON EMP.DEPTNO=DEPT.DEPTNO;
+
+ENAME      DNAME                                                                                    
+---------- --------------                                                                           
+SMITH      RESEARCH                                                                                 
+ALLEN      SALES                                                                                    
+WARD       SALES                                                                                    
+JONES      RESEARCH                                                                                 
+MARTIN     SALES                                                                                    
+BLAKE      SALES                                                                                    
+CLARK      ACCOUNTING                                                                               
+SCOTT      RESEARCH                                                                                 
+KING       ACCOUNTING                                                                               
+TURNER     SALES                                                                                    
+ADAMS      RESEARCH                                                                                 
+JAMES      SALES                                                                                    
+FORD       RESEARCH                                                                                 
+MILLER     ACCOUNTING                                                                               
+
+14 rows selected.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> -----------6--------------;
+SQL> SELECT LOC
+  2  /
+SELECT LOC
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1* SELECT LOC
+SQL> /
+SELECT LOC
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> -------------6---------------;
+SQL> SELECT LOC, COMM
+  2  FROM EMP
+  3  JOIN DEPT
+  4  ON EMP.DEPTNO=DEPT.DEPTNO
+  5  WHERE COMM IS NOT NULL;
+
+LOC                 COMM                                                                            
+------------- ----------                                                                            
+CHICAGO              300                                                                            
+CHICAGO              500                                                                            
+CHICAGO             1400                                                                            
+CHICAGO                0                                                                            
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> -------------7-------------;
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT DNAME, COMM
+  2  FROM EMP
+  3  JOIN DEPT
+  4  ON EMP.DEPTNO=DEPT.DEPTNO
+  5* WHERE MGR IS NULL AND SAL IS NOT NULL
+SQL> /
+
+DNAME                COMM                                                                           
+-------------- ----------                                                                           
+ACCOUNTING                                                                                          
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> ----------eIGHT ONE------------;
+SQL> 
+SQL> 
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT DNAME, LOC
+  2  FROM EMP
+  3  JOIN DEPT
+  4  ON EMP.DEPTNO=DEPT.DEPTNO
+  5* WHERE MGR IS NULL AND SAL IS NOT NULL
+SQL> /
+
+DNAME          LOC                                                                                  
+-------------- -------------                                                                        
+ACCOUNTING     NEW YORK                                                                             
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> ------------9--------------;
+SQL> SELECT E1.DNAME, E1.LOC
+  2  FROM EMP DEPT.D1
+  3  JOIN EMP E1
+  4  ON E1.MGR=D1.EMPNO
+  5  WHERE E1.JOB='SALESMAN';
+FROM EMP DEPT.D1
+             *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> /
+FROM EMP DEPT.D1
+             *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT D1.DNAME, D1.LOC
+  2  FROM EMP DEPT.D1
+  3  JOIN EMP E1
+  4  ON E1.MGR=D1.EMPNO
+  5* WHERE E1.JOB='SALESMAN'
+SQL> /
+FROM EMP DEPT.D1
+             *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT D1.DNAME, D1.LOC
+  2  FROM EMP DEPT.D1
+  3  JOIN EMP E1
+  4  ON (E1.DEPTNO=D1.DEPTNO) AND (E1.MGR=D1.EMPNO)
+  5* WHERE E1.JOB='SALESMAN'
+SQL> /
+FROM EMP DEPT.D1
+             *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> spool off

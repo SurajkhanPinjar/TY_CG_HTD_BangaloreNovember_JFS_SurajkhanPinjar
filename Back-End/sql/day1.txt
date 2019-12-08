@@ -1,0 +1,124 @@
+SQL> 
+SQL> cl scr
+SQL> select ename
+  2  from emp
+  3  where deptno=10;
+
+ENAME                                                                                               
+----------                                                                                          
+CLARK                                                                                               
+KING                                                                                                
+MILLER                                                                                              
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where sal>1200
+SQL> 
+SQL> /
+
+ENAME                                                                                               
+----------                                                                                          
+ALLEN                                                                                               
+WARD                                                                                                
+JONES                                                                                               
+MARTIN                                                                                              
+BLAKE                                                                                               
+CLARK                                                                                               
+SCOTT                                                                                               
+KING                                                                                                
+TURNER                                                                                              
+FORD                                                                                                
+MILLER                                                                                              
+
+11 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where mgr=7698
+SQL> /
+
+ENAME                                                                                               
+----------                                                                                          
+ALLEN                                                                                               
+WARD                                                                                                
+MARTIN                                                                                              
+TURNER                                                                                              
+JAMES                                                                                               
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where deptno=20
+SQL> /
+
+ENAME                                                                                               
+----------                                                                                          
+SMITH                                                                                               
+JONES                                                                                               
+SCOTT                                                                                               
+ADAMS                                                                                               
+FORD                                                                                                
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where deptno=20
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select ename
+  2  from emp
+  3* where deptno=20
+SQL> /
+
+ENAME                                                                                               
+----------                                                                                          
+SMITH                                                                                               
+JONES                                                                                               
+SCOTT                                                                                               
+ADAMS                                                                                               
+FORD                                                                                                
+
+SQL> select ename , sal
+  2  from emp
+  3  where sal<3000;
+
+ENAME             SAL                                                                               
+---------- ----------                                                                               
+SMITH             800                                                                               
+ALLEN            1600                                                                               
+WARD             1250                                                                               
+JONES            2975                                                                               
+MARTIN           1250                                                                               
+BLAKE            2850                                                                               
+CLARK            2450                                                                               
+TURNER           1500                                                                               
+ADAMS            1100                                                                               
+JAMES             950                                                                               
+MILLER           1300                                                                               
+
+11 rows selected.
+
+SQL> select ename,mgr, deptno
+  2  from emp
+  3  where mgr=7698 and deptno=30;
+
+ENAME             MGR     DEPTNO                                                                    
+---------- ---------- ----------                                                                    
+ALLEN            7698         30                                                                    
+WARD             7698         30                                                                    
+MARTIN           7698         30                                                                    
+TURNER           7698         30                                                                    
+JAMES            7698         30                                                                    
+
+SQL> spool off
