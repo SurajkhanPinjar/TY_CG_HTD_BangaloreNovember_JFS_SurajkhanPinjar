@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/j2ee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/j2ee http://xmlns.jcp.org/xml/ns/j2ee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>mywebapp</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<context-param>
+		<param-name>myContextParam</param-name>
+		<param-value>Hi there</param-value>
+	</context-param>
+	
+	
+	<servlet>
+		<servlet-name>currentDate</servlet-name>
+		<servlet-class>com.capgemini.myweb.servelets.DateServelet</servlet-class>
+		
+		<init-param>
+			<param-name>myConfigParam</param-name>
+			<param-value>Hello</param-value>
+		</init-param>
+		
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>currentDate</servlet-name>
+		<url-pattern>/currentDate</url-pattern>
+	
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getEmp</servlet-name>
+		<servlet-class>com.capgemini.myweb.servelets.GetEmployeeServlets</servlet-class>
+	</servlet>
+	
+	
+	<servlet-mapping>
+		<servlet-name>getEmp</servlet-name>
+		<url-pattern>/getEmployee</url-pattern>
+		
+		<init-param>
+			<param-name>myConfigParam</param-name>
+			<param-value>Hello</param-value>
+		</init-param>
+		
+	</servlet-mapping>
+	
+	
+	
+	<servlet>
+		<servlet-name>loginFormJSP</servlet-name>
+		<jsp-file>/loginFormJSP.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>loginFormJSP</servlet-name>
+		<url-pattern>/loginFormJSP</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+	<servlet-name>homePage</servlet-name>
+	<jsp-file>/homePage.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>homePage</servlet-name>
+	<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+	<servlet>
+		<servlet-name>updateJSP</servlet-name>
+		<servlet-class>/updateJSP.jsp</servlet-class>
+	
+	</servlet>
+	
+	
+	<servlet-mapping>
+		<servlet-name>updateJSP</servlet-name>
+		<url-pattern>/updateJSP</url-pattern>
+	
+	</servlet-mapping>
+	
+</web-app>
