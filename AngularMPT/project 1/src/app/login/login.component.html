@@ -1,0 +1,28 @@
+<div class="card">
+        <div class="card-body">
+                <div class="col-md-4 offset-md-4 mt-4">
+                        <h3>Please Login</h3>
+                        <form #logged='ngForm' (ngSubmit)='login(logged)'>
+                                <div class="form-group">
+                                        <label for="userId">User Id</label>
+                                        <input type="text" name="userId" id="userId" value="userId" #userId='ngModel'
+                                                ngModel class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="userPassword">Password</label>
+                                        <input type="password" name="userPassword" id="userPassword"
+                                                value="userPassword" #userPassword='ngModel' ngModel
+                                                class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block ">
+                                                Login
+                                        </button>
+                                </div>
+                        </form>
+                </div>
+        </div>
+</div>
+

@@ -1,0 +1,41 @@
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="container mt-3">
+        <table class="table table-bordered table-hover" >
+            <thead class="thead-dark ">
+                <tr>
+                    <th>userId</th>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Delete</th>
+
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor='let user of users' >
+                    <td >{{user.userId}}</td>
+                    <td>{{user.id}}</td>
+                    <td>{{user.title}}</td>
+                    <td>{{user.body}}</td>
+                    
+                    <td><button class="btn btn-outline-danger"
+                        >Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+       
