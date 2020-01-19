@@ -1,0 +1,22 @@
+<!-- <div class="col-md-4 offset-4 mt-5">
+    <input type="text" #id class="form-control mb-3" placeholder="Enter Id to Navigate ">
+    <button class="btn btn-primary" (click)='goToId(id.value)'>
+        Go to Id
+    </button>
+
+</div> -->
+
+
+<div class="col-md-4 offset-4 mt-5">
+    <input type="text" name="" #id class="form-control mb-3" 
+    placeholder="Enter Id To Navigate">
+    <input type="text" name="" #name class="form-control mb-3"
+    placeholder="Enter User name">
+    <input type="text" name="" #url class="form-control mb-3"
+    placeholder="Enter Image Url">
+    <button class="btn btn-primary"
+    (click)='goToId(id.value, name.value, url.value)'>
+    go to Id
+    </button>
+
+</div>

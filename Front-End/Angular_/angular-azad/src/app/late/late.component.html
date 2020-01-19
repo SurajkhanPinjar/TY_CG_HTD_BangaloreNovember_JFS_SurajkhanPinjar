@@ -1,0 +1,49 @@
+<!-- {{message}}
+<div class="alert alert-danger " *ngIf='message'>{{message}}</div>
+<ul class="list-group">
+    <li *ngFor='let late of lateComer' class="list-group-item">
+        {{late}}
+        <button class="btn btn-outline-primary float-right" (click)='deleteLateComer(late)'>delete</button>
+    </li>
+</ul> -->
+
+{{message}}
+<div class="alert alert-danger " *ngIf='message'>{{message}}</div>
+<ul class="list-group">
+    <li *ngFor='let late of lateComer' class="list-group-item"
+    [ngClass] = '{
+        "list-group-item-success" : late.charAt(0) === "a",
+        "list-group-item-danger" : late.charAt(0) !== "a"
+
+    }'
+    [ngStyle] = '{
+        "fontsize" : lateComer.length <= 5 ? "25px" : "100px"
+    }'>
+        {{late}}
+        <button class="btn btn-outline-primary float-right" (click)='deleteLateComer(late)'>delete</button>
+    </li>
+</ul>
+
+
+<div *ngIf='flag;then trueBlock else falseBlock'>
+    Flag is true
+</div>
+
+<ng-template #trueBlock>
+    <h1 class="bg-success text-center">
+        this is true
+    </h1>
+</ng-template>
+
+<ng-template #falseBlock>
+    <h1 class="bg-danger text-center">
+        this is false
+    </h1>
+</ng-template>
+
+<div [ngSwitch]='person'>
+    <div *ngSwitchCase='"khan"'>Khan is selected one</div>
+    <div *ngSwitchCase='"saif"'>Khan is selected one</div>
+    <div *ngSwitchCase='"omkar"'>Khan is selected one</div>
+    <div *ngSwitchDefault>Default</div>
+</div>

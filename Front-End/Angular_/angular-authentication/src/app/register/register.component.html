@@ -1,0 +1,52 @@
+<div class="alert alert-succes" *ngIf='success'>{{success}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+<div class="col-md-4 offset-md-4 mt-4">
+    <form #registerForm='ngForm' (ngSubmit)='registerUser(registerForm)'> 
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" #name='ngModel' ngModel class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="url">email</label>
+            <input type="email" name="email" id="email" #email='ngModel' ngModel class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" id="phone" #phone='ngModel' ngModel class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" #password='ngModel' ngModel class="form-control"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="role">Role</label>
+            <select name="role" id="role" #role='ngModel' ngModel class="form-Control">
+                <option value="admin">admin</option>
+                <option value="user">User</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" #gender='ngModel' ngModel class="form-Control">
+                <option value="male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+
+        <button type="submit" class="btn btn-outline-primary float-right">
+            Register
+        </button>
+        <button type="reset" class="btn btn-outline-dark float-right">Reset</button>
+    </form>
+</div>
+
+
+
+<!-- ' -->

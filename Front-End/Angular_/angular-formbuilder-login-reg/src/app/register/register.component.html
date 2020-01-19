@@ -1,0 +1,127 @@
+<div class="col-md-4  offset-md-4 mt-5">
+    <form [formGroup]='registerForm' (ngSubmit)='submitForm()'>
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name" formControlName='name' class="form-control">
+            <div class="text-danger" *ngIf='name.touched && name.invalid'>
+                <div *ngIf='name.errors.required'>
+                    *This field is mandatory
+                </div>
+
+                <div *ngIf='name.errors.minlength'>
+                    *Minimum 5 characters required
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" formControlName='email' class="form-control">
+            <div class="text-danger" *ngIf='email.touched && email.invalid'>
+                <div *ngIf='email.errors.required'>
+                    *This field is mandatory
+                </div>
+
+                <div *ngIf='email.errors.minlength'>
+                    *Minimum 5 characters required
+                </div>
+
+                <div *ngIf='age.errors.email'>
+                    *Only Valid Email Id
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" formControlName='password' class="form-control">
+            <div class="text-danger" *ngIf='password.touched && password.invalid'>
+                <div *ngIf='password.errors.required'>
+                    *This field is mandatory
+                </div>
+
+                <div *ngIf='password.errors.minlength'>
+                    *Minimum 8 characters required
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="age" name="age" id="age" formControlName='age' class="form-control">
+            <div class="text-danger" *ngIf='age.touched && age.invalid'>
+                <div *ngIf='age.errors.required'>
+                    *This field is mandatory
+                </div>
+
+                <div *ngIf='age.errors.minlength'>
+                    *Minimum 10
+                </div>
+
+                <div *ngIf='age.errors.pattern'>
+                    *Numbers Only Allowed
+                </div>
+
+                <div *ngIf='age.errors.min || age.errors.max'>
+                    *Enter Valid Age(1-150)
+                </div>
+            </div>
+        </div>
+
+        <div formArrayName='skills'>
+            <div class="mb-3">
+                <span class="h4 text-secondary">Skill</span>
+                <button class="btn btn-outline-dark  float-right" type="button" (click)='addSkill()'>
+                    Add Skill
+                </button>
+            </div>
+
+            <div *ngFor='let control of skills.controls; index as i'>
+                <div class="form-group">
+                    <label for="skill{{i+1}}">Skills{{i+1}} </label>
+                    <div class="col-md-2 mb-3"></div>
+                    <input type="text" class="form-control" name="skill{{i+1}}"
+                        class="form-control col-md-10 float-left" [formControlName]='i'>
+                    <button type="button" class="btn btn-secondary float-left col-md-2" (click)='deleteSkill(i)'>
+                        &times;
+                    </button>
+                </div>
+                <div *ngIf='control.invalid && control.touched'>  
+                    <div class="text-danger" *ngIf='skills.controls[i].errors.required'>
+                        *This Field Is mandatory
+                    </div>
+
+                    <div class="text-danger" *ngIf='skills.controls[i].errors.minlength'>
+                        *Minimum 3 characters are Required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" (click)='submitForm(loginForm)' class="btn btn-primary float-right">Register
+        </button>
+
+
+
+    </form>
+
+</div>
+
+
+
+
+<!-- <div formArrayName='skills'>
+        <div class="mb-3">
+            <span class="h4 text-secondary">Skills</span>
+            <button class="btn btn-outline-dark  float-right" 
+                type="button" (click)='addSkill()'>
+                Add Skill
+            </button>
+        </div>
+        
+        <div *ngFor='let control of skills.controls; index as i'>
+            <div class="form-group">
+                <label for="skill{{i+1}}">Skill {{i+1}} </label>
+                <input type="text" class="form-control" [formControlName]='i'>
+            </div>
+        </div>
+    </div> -->
