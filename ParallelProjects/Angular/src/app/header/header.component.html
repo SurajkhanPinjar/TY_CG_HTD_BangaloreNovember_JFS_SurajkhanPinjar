@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+
+  <a class="navbar-brand text-light  font-weight-bold " style="font-family: Sans-serif; " routerLink="/"><img
+      src="https://icons-for-free.com/iconfiles/png/512/forest+trees+icon-1320136427762698844.png"
+      style="height: 50px; width: 50px;">Forestry Management</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link font-weight-bold text-light " *ngIf='isAdmin()' routerLink="/admin">Admin</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link font-weight-bold  text-light" *ngIf='isClient()' routerLink="/client">Client</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link font-weight-bold  text-light" *ngIf='isScheduler()' routerLink="/scheduler">Scheduler</a>
+      </li>
+
+      <ul class="navbar-nav float-right">
+        
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold text-light " *ngIf='!loggedIn()' routerLink="login">login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold text-light " *ngIf='!loggedIn()' routerLink="register">Sign-Up</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold text-light " *ngIf='loggedIn()' (click)='logout()'>Logout</a>
+        </li>
+
+      </ul>
+
+      <li class="nav-item">
+        <a class="nav-link " routerLink="**"></a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
