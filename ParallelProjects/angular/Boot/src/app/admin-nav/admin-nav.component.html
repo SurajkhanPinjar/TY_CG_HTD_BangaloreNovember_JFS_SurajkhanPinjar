@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand text-light  font-weight-bold" routerLink="/admin">Admin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+  
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light   " href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Customer
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/add-customer" *ngIf='isAdmin()'>Add Customer</a>
+            <a class="dropdown-item" routerLink="/get-all-customer" *ngIf='isAdmin()'>All Customer</a>
+  
+          </div>
+        </li>
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle  text-light  " href="#" id="navbarDropdown1" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Contracts
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/add-contracts">Add Contracts</a>
+            <a class="dropdown-item" routerLink="/get-all-contracts">All Contracts</a>
+          </div>
+        </li>
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle  text-light  " href="#" id="navbarDropdown2" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Products
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/add-products">Add Products</a>
+            <a class="dropdown-item" routerLink="/get-all-products">All Products</a>
+          </div>
+        </li>
+  
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle  text-light  "  href="#" id="navbarDropdown3" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Land
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/add-land">Add Land</a>
+            <a class="dropdown-item" routerLink="/get-all-land">All Land Details</a>
+          </div>
+        </li>
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle  text-light  "  href="#" id="navbarDropdown4" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Accounts
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/add-accounts">Add Accounts</a>
+          </div>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link " routerLink="**"></a>
+      </li>
+      </ul>
+    </div>
+  </nav>
+  

@@ -1,0 +1,53 @@
+<app-admin-nav></app-admin-nav>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+<div class="d-flex align-items-center" *ngIf='!lands' >
+    <strong>Loading...</strong>
+    <div class="spinner-border ml-auto" role="status" aria-hidden="true" style="color: teal;"  ></div>
+  </div>
+
+<div class="container mt-3">
+        <table class="table table-bordered table-hover" >
+            <thead style="background: teal;">
+                <tr>
+                    <th>Land Id</th>
+                    <th>location</th>
+                    <th>ownerName</th>
+                    <th>date</th>
+                    <th>value</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor='let land of lands' >
+                    <td >{{land.landId}}</td>
+                    <td>{{land.location}}</td>
+                    <td>{{land.ownerName}}</td>
+                    <td>{{land.date}}</td>
+                    <td>{{land.value}}</td>
+                    
+                    <td><button class="btn btn-outline-primary" (click) =  'updateLand(land)'>Modify</button>
+                    </td>
+                    
+                    <td><button class="btn btn-outline-danger"
+                        (click) = 'deleteLand(land)'>Delete</button>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+       

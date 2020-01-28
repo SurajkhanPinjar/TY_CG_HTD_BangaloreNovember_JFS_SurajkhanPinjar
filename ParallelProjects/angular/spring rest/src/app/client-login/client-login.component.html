@@ -1,0 +1,32 @@
+
+<div class="col-md-4 offset-md-4 mt-4">
+<div class="card">
+        <div class="card-header" >
+                <h2>Client Login </h2>
+        </div>
+        <div class="card-body">
+                        <form #loggedClient='ngForm' (ngSubmit)='loginClient(loggedClient)'>
+                                <div class="form-group">
+                                        <label for="clientId">Client Id</label>
+                                        <input type="text" name="clientId" id="clientId" value="clientId"
+                                                #clientId='ngModel' ngModel class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="clientPassword">Password</label>
+                                        <input type="password" name="clientPassword" id="clientPassword" value="clientPassword"
+                                                #clientPassword='ngModel' ngModel class="form-control" required>
+                                </div>
+                               
+                                <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block ">
+                                                Login
+                                        </button>
+                                </div>
+                        </form>
+                </div>
+        </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br>
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>

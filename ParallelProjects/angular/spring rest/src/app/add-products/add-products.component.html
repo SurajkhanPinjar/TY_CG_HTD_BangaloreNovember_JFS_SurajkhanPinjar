@@ -1,0 +1,67 @@
+<app-admin-nav></app-admin-nav>
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>   
+<div class="col-md-4 offset-4 mt-4">
+    <div class="card">
+        <div class="card-header text-light" style="background: rgb(0, 143, 143);">
+            <h3>Add Products</h3>
+        </div>
+        <div class="card-body">
+            <form #AddedProducts='ngForm' (ngSubmit)='addProducts(AddedProducts)'>
+                <div class="form-group">
+                    <label for="productId">Product Id</label>
+                    <input type="text" name="productId" id="productId" #productId='ngModel' ngModel class="form-control"
+                        required placeholder="Enter Product Id" minlength="1" maxlength="10" pattern="^[1-9]+[0-9]*$">
+                    <div class="text-danger" *ngIf='(productId.dirty || productId.touched) && productId.invalid'>
+                        <div *ngIf='productId.errors.required'>
+                            *This field is mandatory
+                        </div>
+                        <div *ngIf='productId.errors.pattern'>
+                            *only valid numbers are allowed
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" name="productName" id="productName" #productName='ngModel' ngModel
+                        class="form-control" maxlength="20" required placeholder="Enter Product Name"
+                        pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="2" maxlength="20">
+                    <div class="text-danger" *ngIf='(productName.dirty || productName.touched) && productName.invalid'>
+                        <div *ngIf='productName.errors.required'>
+                            *This field is mandatory
+                        </div>
+                        <div *ngIf='productName.errors.minlength'>
+                            *minimum 2 letters mandatory
+                        </div>
+                        <div *ngIf='productName.errors.pattern'>
+                            *only alphabets are allowed
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="productId">Quantity</label>
+                    <input type="text" name="quantity" id="quantity" #quantity='ngModel' ngModel class="form-control"
+                        required placeholder="Enter Quantity">
+                    <div class="text-danger" *ngIf='(quantity.dirty || quantity.touched) && quantity.invalid'>
+                        <div *ngIf='quantity.errors.required'>
+                            *This field is mandatory
+                        </div>
+                        <div *ngIf='quantity.errors.minlength'>
+                            *minimum 2 letters mandatory
+                        </div>
+
+                    </div>
+                </div>
+
+                <button [disabled]='AddedProducts.form.invalid' type="sumbit" class="btn btn-outline-info">Add
+                    Product</button>
+
+                <button type="reset" class="btn btn-outline-dark btn-md">Reset</button>
+
+            </form>
+        </div>
+    </div>
+</div>

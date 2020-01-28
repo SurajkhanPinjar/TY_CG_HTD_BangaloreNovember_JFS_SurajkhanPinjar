@@ -1,0 +1,15 @@
+.dropdown:hover>.dropdown-menu{
+    display: block;
+}
+
+nav{
+    background-color: teal;
+}
+
+.card{
+    border:1.5px solid teal; 
+    margin-left: 35%;
+    margin-top:5%;
+    width: 35rem;
+    height: 8rem;
+}

@@ -1,0 +1,89 @@
+<app-client-nav></app-client-nav>
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+<div class="col-md-4 offset-md-4 mt-4">
+        <div class="card">
+                <div class="card-header font-weight-bold  text-light" style="background: rgb(0, 143, 143);">
+                        <h3>Add Contracts</h3>
+                </div>
+                <div class="card-body">
+                        <form #AddedContracts='ngForm' (ngSubmit)='addContacts(AddedContracts)'>
+
+                                <div class="form-group">
+                                        <label for="contractNo">Contract No</label>
+                                        <input type="text" name="contractNo" id="contractNo" #contractNo='ngModel'
+                                                ngModel class="form-control" required placeholder="Enter Contract No"
+                                                minlength="1" maxlength="10" pattern="^[1-9]+[0-9]*$">
+                                        <div class="text-danger"
+                                                *ngIf='(contractNo.dirty || contractNo.touched) && contractNo.invalid'>
+                                                <div *ngIf='contractNo.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                                <div *ngIf='contractNo.errors.minlength'>
+                                                        *minimum 1 number mandatory
+                                                </div>
+                                                <div *ngIf='contractNo.errors.pattern'>
+                                                        *only Valid numbers are allowed
+                                                </div>
+                                        </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="prodId">Product Id</label>
+                                        <input type="text" name="prodId" id="prodId" #prodId='ngModel' ngModel
+                                                class="form-control" required placeholder="Enter Product Id"
+                                                minlength="1" maxlength="10" pattern="^[1-9]+[0-9]*$">
+                                        <div class="text-danger"
+                                                *ngIf='(prodId.dirty || prodId.touched) && prodId.invalid'>
+                                                <div *ngIf='prodId.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                                <div *ngIf='prodId.errors.minlength'>
+                                                        *minimum 1 number mandatory
+                                                </div>
+                                                <div *ngIf='prodId.errors.pattern'>
+                                                        *only valid numbers are allowed
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="customerId">Customer Id</label>
+                                        <input type="text" name="customerId" id="customerId" #customerId='ngModel'
+                                                ngModel class="form-control" required placeholder="Enter Customer Id"
+                                                minlength="1" maxlength="10" pattern="^[1-9]+[0-9]*$">
+                                        <div class="text-danger"
+                                                *ngIf='(customerId.dirty || customerId.touched) && customerId.invalid'>
+                                                <div *ngIf='customerId.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                                <div *ngIf='customerId.errors.minlength'>
+                                                        *minimum 1 number mandatory
+                                                </div>
+                                                <div *ngIf='customerId.errors.pattern'>
+                                                        *only valid numbers are allowed
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="postalCode">Quantity</label>
+                                        <input type="text" name="quantity" id="quantity" #quantity='ngModel' ngModel
+                                                class="form-control" required placeholder="Enter Quantity">
+                                        <div class="text-danger" *ngIf='quantity.touched && quantity.invalid'>
+                                                <div *ngIf='quantity.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <button [disabled]='AddedContracts.form.invalid' type="sumbit"
+                                        class="btn btn-outline-info">Add Contracts</button>
+
+                                <button type="reset" class="btn btn-outline-dark btn-md">Reset</button>
+
+                        </form>
+                </div>
+        </div>
+</div>

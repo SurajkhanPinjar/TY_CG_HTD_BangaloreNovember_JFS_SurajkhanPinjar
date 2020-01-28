@@ -1,0 +1,104 @@
+<app-admin-nav></app-admin-nav>
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="alert alert-success" *ngIf='failure'>{{failure}}</div>
+
+<div class="card col-md-4 offset-md-4  ">
+        <div class="card">
+                <div class="card-header font-weight-bold  text-light" style="background: rgb(0, 143, 143);">
+                        <h3>Add Account</h3>
+                </div>
+                <div class="card-body ">
+                        <form #registerForm='ngForm' (ngSubmit)='registerUser(registerForm)'>
+                                <div class="form-group">
+                                        <input type="hidden" id="adminId" name="adminId" class="form-control"
+                                                #adminId='ngModel' ngModel placeholder="Enter Id" minlength="1"
+                                                maxlength="10" pattern="[0-9]+">
+                                        <div class="text-danger"
+                                                *ngIf='(adminId.dirty || adminId.touched) && adminId.invalid'>
+                                                <div *ngIf='adminId.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                                <div *ngIf='adminId.errors.minlength'>
+                                                        *minimum 1 number mandatory
+                                                </div>
+                                                <div *ngIf='adminId.errors.pattern'>
+                                                        *only numbers are allowed
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="adminName">Name</label>
+                                        <input type="text" name="adminName" id="adminName" #adminName='ngModel' ngModel
+                                                class="form-control" required pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"
+                                                minlength="2" maxlength="20" placeholder="Enter User Name">
+                                        <div class="text-danger"
+                                                *ngIf='(adminName.dirty || adminName.touched) && adminName.invalid'>
+                                                <div *ngIf='adminName.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                                <div *ngIf='adminName.errors.minlength'>
+                                                        *minimum 2 letters mandatory
+                                                </div>
+                                                <div *ngIf='adminName.errors.pattern'>
+                                                        *only characters are allowed
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="text" name="adminPassword" id="adminPassword"
+                                                #adminPassword='ngModel' ngModel class="form-control" required
+                                                placeholder="Enter Password"
+                                                pattern="^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,20}$"
+                                                minlength="8" maxlength="20">
+                                        <div class="text-danger"
+                                                *ngIf='(adminPassword.dirty || adminPassword.touched) && adminPassword.invalid'>
+                                                <div *ngIf='adminPassword.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                                <div *ngIf='adminPassword.errors.minlength'>
+                                                        *minimum 2 letters mandatory
+                                                </div>
+                                                <div *ngIf='adminPassword.errors.pattern'>
+                                                        *password Should have minimum 8 and maximum 20 characters, and
+                                                        should
+                                                        have minimum 1 lower case, 1 upper case alphabate and 1 special
+                                                        character(!@#$&*)....!
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                        <label for="adminEmail">User Email</label>
+                                        <input type="email" name="adminEmail" id="adminEmail" #adminEmail='ngModel'
+                                                ngModel class="form-control" required placeholder="Enter Email Id">
+                                        <div class="text-danger"
+                                                *ngIf='(adminEmail.dirty || adminEmail.touched) && adminEmail.invalid'>
+                                                <div *ngIf='adminEmail.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                        </div>
+                                </div>
+
+
+                                <label for="role">Role</label>
+                                <select id="role" name="role" #role='ngModel' ngModel class="form-control">
+                                        <option value="client"> Client</option>
+                                        <option value="scheduler"> Scheduler</option>
+                                </select>
+
+                                <button [disabled]='registerForm.form.invalid' type="submit"
+                                        class="btn btn-primary float-right">
+                                        Register
+                                </button>
+
+                                <button type="reset" class="btn btn-dark float-right ">
+                                        Reset
+                                </button>
+
+                        </form>
+                </div>
+
+        </div>
+</div>

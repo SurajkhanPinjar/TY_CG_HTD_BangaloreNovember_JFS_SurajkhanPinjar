@@ -1,0 +1,76 @@
+<app-scheduler-nav></app-scheduler-nav>
+
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+<div class="col-md-4 offset-md-4 mt-4">
+        <div class="card">
+                <div class="card-header">
+                        <h2>Schedule Contract </h2>
+
+                </div>
+                <div class="card-body">
+                        <form #ScheduledContracts='ngForm' (ngSubmit)='scheduleContracts(ScheduledContracts)'>
+                                <div class="form-group">
+                                        <!-- <label for="contractNo">Contract No</label> -->
+                                        <input type="hidden" name="contractNo" id="contractNo" #contractNo='ngModel'
+                                                [(ngModel)]='contractNo1' class="form-control" required
+                                                placeholder="Enter Contract No">
+                                </div>
+
+                                <div class="form-group">
+                                        <!-- <label for="prodId">Product Id</label> -->
+                                        <input type="hidden" name="prodId" id="prodId" #prodId='ngModel'
+                                                [(ngModel)]='prodId1' class="form-control" required
+                                                placeholder="Enter Product Id">
+                                </div>
+
+                                <div class="form-group">
+                                        <!-- <label for="customerId">Customer Id</label> -->
+                                        <input type="hidden" name="customerId" id="customerId" #customerId='ngModel'
+                                                [(ngModel)]='customerId1' class="form-control" required
+                                                placeholder="Enter Customer Id">
+                                </div>
+
+                                <div class="form-group">
+                                        <!-- <label for="postalCode">Quantity</label> -->
+                                        <input type="hidden" name="quantity" id="quantity" #quantity='ngModel'
+                                                [(ngModel)]='quantity1' class="form-control" required
+                                                placeholder="Enter Quantity">
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="deliveryDate">Delivery Date</label>
+                                        <input type="date" name="deliveryDate" id="deliveryDate" #deliveryDate='ngModel'
+                                                [(ngModel)]='deliveryDate1' class="form-control" required required
+                                                min="{{today}}">
+                                        <div class="validationText"
+                                                *ngIf='(deliveryDate.dirty || deliveryDate.touched) && deliveryDate.invalid'>
+                                                <div *ngIf='deliveryDate.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                        </div>
+                                </div>
+
+
+                                <label for="role">Contract Status</label>
+                                <select id="status" name="status" #status='ngModel' [(ngModel)]='status1'
+                                        class="form-control" required>
+                                        <option value="Rejected"> Reject</option>
+                                        <option value="Approved"> Approve</option>
+                                        <option value="Pending"> Pending</option>
+                                </select>
+                                <div class="validationText" *ngIf='(status.dirty || status.touched) && status.invalid'>
+                                        <div *ngIf='status.errors.required'>
+                                                *This field is mandatory
+                                        </div>
+                                </div>
+                                <br>
+
+                                <button type="sumbit" class="btn btn-outline-info">Schedule Contracts</button>
+
+                                <button type="reset" class="btn btn-outline-dark btn-md">Reset</button>
+
+                        </form>
+                </div>
+        </div>
+</div>

@@ -1,0 +1,108 @@
+
+<app-admin-nav></app-admin-nav>
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+<div class="col-md-4 offset-md-4 mt-4">
+<div class="card">
+        <div class="card-header font-weight-bold  text-light" style="background: rgb(0, 143, 143);">
+                        <h3>Add Land</h3>
+                        </div>
+                        <div class="card-body">
+                        <form #AddedLand='ngForm' (ngSubmit)='addLand(AddedLand)'>
+                                <div class="form-group">
+                                        <label for="landId">Land Id</label>
+                                        <input type="text" name="landId" id="landId" #landId='ngModel' ngModel
+                                                class="form-control" required placeholder="Enter Land Id" minlength="1"
+                                                maxlength="10" pattern="^[1-9]+[0-9]*$">
+                                        <div class="text-danger"
+                                                *ngIf='(landId.dirty || landId.touched) && landId.invalid'>
+                                                <div *ngIf='landId.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                                <div *ngIf='landId.errors.minlength'>
+                                                        *minimum 1 number mandatory
+                                                </div>
+                                                <div *ngIf='landId.errors.pattern'>
+                                                        *only Valid numbers are allowed
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="location">Location</label>
+                                        <input type="text" name="location" id="location" #location='ngModel' ngModel
+                                                class="form-control" required placeholder="Enter Land Location"
+                                                pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="2" maxlength="20">
+                                        <div class="text-danger"
+                                                *ngIf='(location.dirty || location.touched) && location.invalid'>
+                                                <div *ngIf='location.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                                <div *ngIf='location.errors.minlength'>
+                                                        *minimum 2 letters mandatory
+                                                </div>
+                                                <div *ngIf='location.errors.pattern'>
+                                                        *only characters are allowed
+                                                </div>
+                                        </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                        <label for="ownerName">Owner Name </label>
+                                        <input type="text" name="ownerName" id="ownerName" #ownerName='ngModel' ngModel
+                                                class="form-control" required placeholder="Enter Land Owner Name"
+                                                pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="2" maxlength="20">
+                                        <div class="text-danger"
+                                                *ngIf='(ownerName.dirty || ownerName.touched) && ownerName.invalid'>
+                                                <div *ngIf='ownerName.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                                <div *ngIf='ownerName.errors.minlength'>
+                                                        *minimum 2 letters mandatory
+                                                </div>
+                                                <div *ngIf='ownerName.errors.pattern'>
+                                                        *only characters are allowed
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="date">Acquire Date </label>
+                                        <input type="date" name="date" id="date" #date='ngModel' ngModel
+                                                class="form-control" required placeholder="Enter Acquire Date" max='{{today}}'>
+                                                <div class="text-danger"
+                                                *ngIf='(date.dirty || date.touched) && date.invalid'>
+                                                <div *ngIf='date.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="value">Land Value </label>
+                                        <input type="text" name="value" id="value" #value='ngModel' ngModel
+                                                class="form-control" required placeholder="Enter Land Value">
+                                        <div class="text-danger"
+                                                *ngIf='(value.dirty || value.touched) && value.invalid'>
+                                                <div *ngIf='value.errors.required'>
+                                                        *This field is mandatory
+                                                </div>
+                                                <div *ngIf='value.errors.minlength'>
+                                                        *minimum 1 number mandatory
+                                                </div>
+                                                <div *ngIf='value.errors.pattern'>
+                                                        *only numbers are allowed
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <button [disabled]='AddedLand.form.invalid' type="sumbit"
+                                        class="btn btn-outline-info">Add Land</button>
+
+                                <button type="reset" class="btn btn-outline-dark btn-md">Reset</button>
+
+                        </form>
+                </div>
+        </div>
+</div>
